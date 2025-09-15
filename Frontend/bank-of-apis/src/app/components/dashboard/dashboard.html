@@ -1,0 +1,36 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h2>Dashboard</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="balance-widget">
+    <h3>Total Balance</h3>
+    <p class="total-amount">₹{{totalBalance() | number:'1.2-2'}}</p>
+  </div>
+
+  <div class="quick-actions">
+    <h3>Quick Actions</h3>
+    <div class="action-buttons">
+      <button class="action-btn" (click)="navigateToAccounts()">
+        View Accounts
+      </button>
+      <button class="action-btn" (click)="navigateToTransfer()">
+        Transfer Funds
+      </button>
+    </div>
+  </div>
+
+  <div class="recent-accounts" *ngIf="accounts().length > 0">
+    <h3>Your Accounts</h3>
+    <div class="accounts-grid">
+      <div class="account-card" *ngFor="let account of accounts()">
+        <div class="account-info">
+          <h4>{{account.bankName}}</h4>
+          <p>{{account.accountNumber}}</p>
+          <p class="account-balance">₹{{account.balance | number:'1.2-2'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

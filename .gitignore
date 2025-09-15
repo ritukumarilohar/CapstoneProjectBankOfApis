@@ -1,0 +1,19 @@
+# Eclipse / IntelliJ / IDE stuff
+**/.metadata/
+**/.classpath
+**/.project
+**/.settings/
+.vscode/
+
+# Java / Maven / Gradle
+target/
+build/
+out/
+
+# Angular
+node_modules/
+dist/
+.env
+
+# Logs
+*.log

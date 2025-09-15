@@ -1,0 +1,127 @@
+<div class="accounts-container">
+  <div class="accounts-header">
+    <h2>Your Bank Accounts</h2>
+    <div class="header-buttons">
+      <button class="add-account-btn" (click)="toggleAddAccountForm()">
+        {{ showAddAccountForm() ? 'Cancel' : 'Add Account' }}
+      </button>
+      <button class="back-btn" (click)="goBack()">Back</button>
+    </div>
+  </div>
+
+  <div class="add-account-form" *ngIf="showAddAccountForm()">
+    <h3>Add New Account</h3>
+    <form (ngSubmit)="addAccount()" #accountForm="ngForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bankName">Bank Name *</label>
+          <input 
+            type="text" 
+            id="bankName" 
+            [(ngModel)]="newAccount.bankName" 
+            name="bankName"
+            placeholder="Enter bank name"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="accountNumber">Account Number *</label>
+          <input 
+            type="text" 
+            id="accountNumber" 
+            [(ngModel)]="newAccount.accountNumber" 
+            name="accountNumber"
+            placeholder="Enter account number"
+            required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="accountType">Account Type</label>
+          <select 
+            id="accountType" 
+            [(ngModel)]="newAccount.accountType" 
+            name="accountType">
+            <option *ngFor="let type of accountTypes" [value]="type">{{type}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select 
+            id="status" 
+            [(ngModel)]="newAccount.status" 
+            name="status">
+            <option value="ACTIVE">Active</option>
+            <option value="INACTIVE">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="balance">Initial Balance</label>
+          <input 
+            type="number" 
+            id="balance" 
+            [(ngModel)]="newAccount.balance" 
+            name="balance"
+            min="0"
+            step="0.01"
+            placeholder="0.00">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="submit-btn" [disabled]="!accountForm.form.valid">
+          Create Account
+        </button>
+        <button type="button" class="cancel-btn" (click)="toggleAddAccountForm()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+
+  
+  <div class="accounts-list">
+    <div class="account-item" *ngFor="let account of accounts()">
+      <div class="account-details">
+        <h3>{{account.bankName}}</h3>
+        <p><strong>Account Number:</strong> {{account.accountNumber}}</p>
+        <p><strong>Account Type:</strong> {{account.accountType}}</p>
+        <p class="balance"><strong>Balance:</strong> ₹{{account.balance | number:'1.2-2'}}</p>
+        <p *ngIf="account.status"><strong>Status:</strong> {{account.status}}</p>
+      </div>
+      <button class="view-btn" (click)="viewTransactions(account)">
+        View Transactions
+      </button>
+    </div>
+  </div>
+
+
+  <div class="transactions-section" *ngIf="selectedAccount()">
+    <h3>Transactions for {{selectedAccount()!.bankName}} - {{selectedAccount()!.accountNumber}}</h3>
+    <div class="transactions-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions()">
+            <td>{{transaction.date | date:'dd/MM/yyyy'}}</td>
+            <td>{{transaction.transactionType}}</td>
+            <td [ngClass]="{
+              'credit': transaction.transactionType === 'Credit',
+              'debit': transaction.transactionType === 'Debit'
+            }">
+              ₹{{transaction.amount | number:'1.2-2'}}
+            </td>
+            <td>{{transaction.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,259 @@
+.accounts-container {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.637);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;    
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  */
+}
+
+.accounts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem; 
+}
+
+.accounts-header h2 {
+  color: #000000;
+  margin: 0;
+  /* margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff; */
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.back-btn {
+   background-color: #66666651;
+  color: rgb(49, 45, 45);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.back-btn:hover {
+  background-color: #070707bb;
+  color:white;
+}
+
+.add-account-btn {
+  background-color: #e9000070;
+  color: rgba(0, 0, 0, 0.612);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-account-btn:hover {
+  background-color: #e71f1f;
+  color: white;
+}
+
+.add-account-form {
+  background: rgba(255, 255, 255, 0.664);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-left: 4px solid #ff3434;
+}
+
+.add-account-form h3 {
+  color: #d21919d8;
+  margin: 0 0 1.5rem 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #d21919;
+  box-shadow: 0 0 0 2px rgba(210, 25, 25, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  background-color: #c6baba8d;
+  color: rgba(0, 0, 0, 0.29);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #f44336;
+  color:white;
+  
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+
+
+.accounts-list {
+  margin-bottom: 2rem;
+}
+
+.account-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-details h3 {
+  color: #d21919;
+  margin: 0 0 0.5rem 0;
+}
+
+.account-details p {
+  margin: 0.25rem 0;
+  color: #666;
+}
+
+.balance {
+  color: #4caf50 !important;
+  font-size: 18px;
+}
+
+.view-btn {
+  background-color: #e9000070;
+  color: rgba(8, 8, 8, 0.735);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background-color:  #e71f1f;
+  color: white;
+}
+
+.transactions-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.transactions-section h3 {
+  color: #d21919;
+  margin-bottom: 1rem;
+}
+
+.transactions-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: #333;
+}
+
+.credit {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.debit {
+  color: #f44336;
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .header-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .account-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}

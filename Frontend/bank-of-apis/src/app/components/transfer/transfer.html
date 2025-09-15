@@ -1,0 +1,82 @@
+<div class="transfer-container">
+  <div class="transfer-header">
+    <h2>Fund Transfer</h2>
+   
+    <button class="back-btn" (click)="goBack()">Back</button>
+    
+  </div>
+
+  <div class="transfer-form-card">
+    <form (ngSubmit)="onSubmit()" #transferForm="ngForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fromAccount">From Account:</label>
+          <select 
+            id="fromAccount" 
+            [(ngModel)]="transferData.fromAccountId" 
+            name="fromAccount" 
+            required 
+            class="form-control">
+            <option value="">Select Source Account</option>
+            <option *ngFor="let account of accounts" [value]="account.id">
+              {{account.bankName}} - {{account.accountNumber}} (₹{{account.balance | number:'1.2-2'}})
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="toAccount">To Account:</label>
+          <select 
+            id="toAccount" 
+            [(ngModel)]="transferData.toAccountId" 
+            name="toAccount" 
+            required 
+            class="form-control">
+            <option value="">Select Destination Account</option>
+            <option *ngFor="let account of accounts" [value]="account.id">
+              {{account.bankName}} - {{account.accountNumber}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="amount">Amount (₹):</label>
+          <input 
+            type="number" 
+            id="amount" 
+            [(ngModel)]="transferData.amount" 
+            name="amount" 
+            required 
+            min="1"
+            step="0.01"
+            class="form-control"
+            placeholder="Enter amount">
+        </div>
+
+        <div class="form-group">
+          <label for="remarks">Remarks:</label>
+          <input 
+            type="text" 
+            id="remarks" 
+            [(ngModel)]="transferData.remarks" 
+            name="remarks" 
+            class="form-control"
+            placeholder="Optional remarks">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          [disabled]="!transferForm.valid || isTransferring" 
+          class="btn-primary">
+          {{isTransferring ? 'Processing...' : 'Transfer Funds'}}
+        </button>
+        <br/><br/>
+        <button type="button" (click)="goBack()" class="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+.transfer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.596);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin:0 auto;
+}
+
+.transfer-form-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  max-width: 680px;
+  width: 100%;
+}
+
+
+.transfer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem; 
+  width:100%;
+  padding: 0 3rem;
+}
+
+.transfer-header h2 {
+  margin: 0;
+  
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0c0c0cd0; 
+}
+
+.back-btn {
+  background-color: #66666651;
+  color: rgb(49, 45, 45);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.back-btn:hover {
+  background-color: #070707bb;
+  color:white;
+}
+
+
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  flex-wrap: wrap; 
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-control {
+  padding: 10px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #ff00006f;
+}
+
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #e9000070;
+  color: rgba(0, 0, 0, 0.612);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  color:rgba(0, 0, 0, 0.53);
+  cursor: not-allowed;
+}
+
+.btn-primary:hover:enabled {
+  background-color: #e71f1f;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+@media (max-width: 768px) {
+  .transfer-form-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
